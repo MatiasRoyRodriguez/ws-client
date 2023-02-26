@@ -1,10 +1,14 @@
 import { Manager } from 'socket.io-client';
 import { Socket } from 'socket.io-client/build/esm/socket';
 
-export const connectToServer = () => {
+export const connectToServer = (token: string) => {
 
 
-	const manager = new Manager('localhost:3000/socket.io/socket.io.js')
+	const manager = new Manager('localhost:3000/socket.io/socket.io.js', {
+		extraHeaders: {
+			authentication: token
+		}
+	});
 
 	const socket = manager.socket('/');
 	addListeners(socket);
