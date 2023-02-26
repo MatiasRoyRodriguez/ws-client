@@ -29,8 +29,6 @@ btnConnect.addEventListener('click', () => {
 
 	if(jwt.value.trim().length <= 0) return alert('Enter a valid JWT');
 
-
-
 	connectToServer(jwt.value.trim());
 
 });
